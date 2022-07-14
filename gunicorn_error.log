@@ -1,0 +1,796 @@
+[2022-07-14 09:26:30 +0200] [174430] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 6
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/basic-user/karmel-backend
+  daemon: True
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1001
+  group: 1001
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: ./gunicorn_access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: ./gunicorn_error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: KarmelBackend
+  default_proc_name: wsgi:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7eff82627dc0>
+  on_reload: <function OnReload.on_reload at 0x7eff82627ee0>
+  when_ready: <function WhenReady.when_ready at 0x7eff82637040>
+  pre_fork: <function Prefork.pre_fork at 0x7eff82637160>
+  post_fork: <function Postfork.post_fork at 0x7eff82637280>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7eff826373a0>
+  worker_int: <function WorkerInt.worker_int at 0x7eff826374c0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7eff826375e0>
+  pre_exec: <function PreExec.pre_exec at 0x7eff82637700>
+  pre_request: <function PreRequest.pre_request at 0x7eff82637820>
+  post_request: <function PostRequest.post_request at 0x7eff826378b0>
+  child_exit: <function ChildExit.child_exit at 0x7eff826379d0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7eff82637af0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7eff82637c10>
+  on_exit: <function OnExit.on_exit at 0x7eff82637d30>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-14 09:26:30 +0200] [174430] [INFO] Starting gunicorn 20.1.0
+[2022-07-14 09:26:30 +0200] [174430] [DEBUG] Arbiter booted
+[2022-07-14 09:26:30 +0200] [174430] [INFO] Listening at: http://0.0.0.0:5000 (174430)
+[2022-07-14 09:26:30 +0200] [174430] [INFO] Using worker: gthread
+[2022-07-14 09:26:30 +0200] [174432] [INFO] Booting worker with pid: 174432
+[2022-07-14 09:26:30 +0200] [174430] [DEBUG] 2 workers
+[2022-07-14 09:26:30 +0200] [174433] [INFO] Booting worker with pid: 174433
+[2022-07-14 09:26:34 +0200] [174433] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:29:23 +0200] [174432] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:29:23 +0200] [174433] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:29:23 +0200] [174433] [INFO] Worker exiting (pid: 174433)
+[2022-07-14 09:29:23 +0200] [174432] [INFO] Worker exiting (pid: 174432)
+[2022-07-14 09:29:23 +0200] [174445] [INFO] Booting worker with pid: 174445
+[2022-07-14 09:29:23 +0200] [174446] [INFO] Booting worker with pid: 174446
+[2022-07-14 09:29:24 +0200] [174445] [ERROR] inconsistent use of tabs and spaces in indentation (database.py, line 9)
+Traceback (most recent call last):
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/basic-user/karmel-backend/wsgi.py", line 1, in <module>
+    from app import get_flask_app
+  File "/home/basic-user/karmel-backend/app.py", line 9, in <module>
+    from database import get_database, default_config
+  File "/home/basic-user/karmel-backend/database.py", line 9
+    return config('TEST_DATABASE_URL')
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+[2022-07-14 09:29:24 +0200] [174446] [ERROR] inconsistent use of tabs and spaces in indentation (database.py, line 9)
+Traceback (most recent call last):
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/basic-user/karmel-backend/wsgi.py", line 1, in <module>
+    from app import get_flask_app
+  File "/home/basic-user/karmel-backend/app.py", line 9, in <module>
+    from database import get_database, default_config
+  File "/home/basic-user/karmel-backend/database.py", line 9
+    return config('TEST_DATABASE_URL')
+                                     ^
+TabError: inconsistent use of tabs and spaces in indentation
+[2022-07-14 09:29:49 +0200] [174445] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:29:49 +0200] [174446] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:29:50 +0200] [174445] [INFO] Worker exiting (pid: 174445)
+[2022-07-14 09:29:50 +0200] [174446] [INFO] Worker exiting (pid: 174446)
+[2022-07-14 09:29:50 +0200] [174449] [INFO] Booting worker with pid: 174449
+[2022-07-14 09:29:50 +0200] [174450] [INFO] Booting worker with pid: 174450
+[2022-07-14 09:29:51 +0200] [174449] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/gthread.py", line 92, in init_process
+    super().init_process()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/basic-user/karmel-backend/wsgi.py", line 1, in <module>
+    from app import get_flask_app
+  File "/home/basic-user/karmel-backend/app.py", line 9, in <module>
+    from database import get_database, default_config
+  File "/home/basic-user/karmel-backend/database.py", line 18, in <module>
+    'host': get_host(),
+  File "/home/basic-user/karmel-backend/database.py", line 7, in get_host
+    current_app.logger.info("I'm an INFO message")
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/werkzeug/local.py", line 278, in __get__
+    obj = instance._get_current_object()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/werkzeug/local.py", line 407, in _get_current_object
+    return self.__local()  # type: ignore
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/flask/globals.py", line 47, in _find_app
+    raise RuntimeError(_app_ctx_err_msg)
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+to interface with the current application object in some way. To solve
+this, set up an application context with app.app_context().  See the
+documentation for more information.
+[2022-07-14 09:29:51 +0200] [174449] [INFO] Worker exiting (pid: 174449)
+[2022-07-14 09:29:51 +0200] [174450] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/gthread.py", line 92, in init_process
+    super().init_process()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/basic-user/karmel-backend/wsgi.py", line 1, in <module>
+    from app import get_flask_app
+  File "/home/basic-user/karmel-backend/app.py", line 9, in <module>
+    from database import get_database, default_config
+  File "/home/basic-user/karmel-backend/database.py", line 18, in <module>
+    'host': get_host(),
+  File "/home/basic-user/karmel-backend/database.py", line 7, in get_host
+    current_app.logger.info("I'm an INFO message")
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/werkzeug/local.py", line 278, in __get__
+    obj = instance._get_current_object()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/werkzeug/local.py", line 407, in _get_current_object
+    return self.__local()  # type: ignore
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/flask/globals.py", line 47, in _find_app
+    raise RuntimeError(_app_ctx_err_msg)
+RuntimeError: Working outside of application context.
+
+This typically means that you attempted to use functionality that needed
+to interface with the current application object in some way. To solve
+this, set up an application context with app.app_context().  See the
+documentation for more information.
+[2022-07-14 09:29:51 +0200] [174450] [INFO] Worker exiting (pid: 174450)
+[2022-07-14 09:29:51 +0200] [174430] [WARNING] Worker with pid 174450 was terminated due to signal 15
+[2022-07-14 09:29:51 +0200] [174430] [INFO] Shutting down: Master
+[2022-07-14 09:29:51 +0200] [174430] [INFO] Reason: Worker failed to boot.
+[2022-07-14 09:31:01 +0200] [174453] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 6
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/basic-user/karmel-backend
+  daemon: True
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1001
+  group: 1001
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: ./gunicorn_access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: ./gunicorn_error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: KarmelBackend
+  default_proc_name: wsgi:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7fa0d32f1dc0>
+  on_reload: <function OnReload.on_reload at 0x7fa0d32f1ee0>
+  when_ready: <function WhenReady.when_ready at 0x7fa0d3301040>
+  pre_fork: <function Prefork.pre_fork at 0x7fa0d3301160>
+  post_fork: <function Postfork.post_fork at 0x7fa0d3301280>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7fa0d33013a0>
+  worker_int: <function WorkerInt.worker_int at 0x7fa0d33014c0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7fa0d33015e0>
+  pre_exec: <function PreExec.pre_exec at 0x7fa0d3301700>
+  pre_request: <function PreRequest.pre_request at 0x7fa0d3301820>
+  post_request: <function PostRequest.post_request at 0x7fa0d33018b0>
+  child_exit: <function ChildExit.child_exit at 0x7fa0d33019d0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7fa0d3301af0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7fa0d3301c10>
+  on_exit: <function OnExit.on_exit at 0x7fa0d3301d30>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-14 09:31:01 +0200] [174453] [INFO] Starting gunicorn 20.1.0
+[2022-07-14 09:31:01 +0200] [174453] [DEBUG] Arbiter booted
+[2022-07-14 09:31:01 +0200] [174453] [INFO] Listening at: http://0.0.0.0:5000 (174453)
+[2022-07-14 09:31:01 +0200] [174453] [INFO] Using worker: gthread
+[2022-07-14 09:31:01 +0200] [174455] [INFO] Booting worker with pid: 174455
+[2022-07-14 09:31:01 +0200] [174456] [INFO] Booting worker with pid: 174456
+[2022-07-14 09:31:01 +0200] [174453] [DEBUG] 2 workers
+[2022-07-14 09:31:28 +0200] [174456] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:31:40 +0200] [174456] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:31:41 +0200] [174456] [INFO] Worker exiting (pid: 174456)
+[2022-07-14 09:31:41 +0200] [174455] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:31:41 +0200] [174467] [INFO] Booting worker with pid: 174467
+[2022-07-14 09:31:42 +0200] [174455] [INFO] Worker exiting (pid: 174455)
+[2022-07-14 09:31:43 +0200] [174472] [INFO] Booting worker with pid: 174472
+[2022-07-14 09:42:39 +0200] [174472] [DEBUG] GET /api/v1/prayerdate/2022-07-05
+[2022-07-14 09:42:48 +0200] [174467] [DEBUG] GET /api/v1/downloadName/Ow02_czw_30_04.mp3
+[2022-07-14 09:42:48 +0200] [174467] [DEBUG] Ignoring connection epipe
+[2022-07-14 09:42:48 +0200] [174472] [DEBUG] GET /api/v1/downloadName/Ow02_czw_30_04.mp3
+[2022-07-14 09:42:48 +0200] [174472] [DEBUG] GET /api/v1/downloadName/Ow02_czw_30_04.mp3
+[2022-07-14 09:42:51 +0200] [174472] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:42:51 +0200] [174472] [INFO] Worker exiting (pid: 174472)
+[2022-07-14 09:42:52 +0200] [174484] [INFO] Booting worker with pid: 174484
+[2022-07-14 09:42:52 +0200] [174467] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:42:53 +0200] [174467] [INFO] Worker exiting (pid: 174467)
+[2022-07-14 09:42:53 +0200] [174489] [INFO] Booting worker with pid: 174489
+[2022-07-14 09:42:56 +0200] [174489] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:43:30 +0200] [174484] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:43:30 +0200] [174489] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:43:31 +0200] [174489] [INFO] Worker exiting (pid: 174489)
+[2022-07-14 09:43:31 +0200] [174484] [INFO] Worker exiting (pid: 174484)
+[2022-07-14 09:43:31 +0200] [174496] [INFO] Booting worker with pid: 174496
+[2022-07-14 09:43:31 +0200] [174497] [INFO] Booting worker with pid: 174497
+[2022-07-14 09:43:32 +0200] [174496] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:43:33 +0200] [174496] [DEBUG] Closing connection. 
+[2022-07-14 09:43:41 +0200] [174497] [DEBUG] GET /api/v1/downloadName/Ow02_czw_30_04.mp3
+[2022-07-14 09:44:37 +0200] [174497] [DEBUG] GET /api/v1/downloadName/Ow02_czw_41_04.mp3
+[2022-07-14 09:44:37 +0200] [174497] [DEBUG] Closing connection. 
+[2022-07-14 09:44:37 +0200] [174496] [DEBUG] GET /api/v1/downloadName/Ow02_czw_41_04.mp3
+[2022-07-14 09:44:38 +0200] [174496] [DEBUG] GET /api/v1/downloadName/Ow02_czw_41_04.mp3
+[2022-07-14 09:44:38 +0200] [174496] [DEBUG] GET /api/v1/downloadName/Ow02_czw_41_04.mp3
+[2022-07-14 09:44:55 +0200] [174497] [DEBUG] GET /api/v1/downloadName/Ow02_czw_42_04.mp3
+[2022-07-14 09:44:55 +0200] [174497] [DEBUG] Ignoring connection reset
+[2022-07-14 09:44:55 +0200] [174497] [DEBUG] GET /api/v1/downloadName/Ow02_czw_42_04.mp3
+[2022-07-14 09:44:55 +0200] [174497] [DEBUG] GET /api/v1/downloadName/Ow02_czw_42_04.mp3
+[2022-07-14 09:44:55 +0200] [174497] [DEBUG] GET /api/v1/downloadName/Ow02_czw_42_04.mp3
+[2022-07-14 09:45:03 +0200] [174496] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:03 +0200] [174496] [INFO] Worker exiting (pid: 174496)
+[2022-07-14 09:45:03 +0200] [174497] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:03 +0200] [174497] [INFO] Worker exiting (pid: 174497)
+[2022-07-14 09:45:03 +0200] [174510] [INFO] Booting worker with pid: 174510
+[2022-07-14 09:45:04 +0200] [174511] [INFO] Booting worker with pid: 174511
+[2022-07-14 09:45:05 +0200] [174510] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:45:11 +0200] [174510] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:12 +0200] [174510] [INFO] Worker exiting (pid: 174510)
+[2022-07-14 09:45:12 +0200] [174511] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:12 +0200] [174522] [INFO] Booting worker with pid: 174522
+[2022-07-14 09:45:13 +0200] [174511] [INFO] Worker exiting (pid: 174511)
+[2022-07-14 09:45:13 +0200] [174522] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:45:13 +0200] [174522] [DEBUG] Closing connection. 
+[2022-07-14 09:45:13 +0200] [174529] [INFO] Booting worker with pid: 174529
+[2022-07-14 09:45:20 +0200] [174522] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:20 +0200] [174529] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:20 +0200] [174522] [INFO] Worker exiting (pid: 174522)
+[2022-07-14 09:45:21 +0200] [174534] [INFO] Booting worker with pid: 174534
+[2022-07-14 09:45:21 +0200] [174529] [INFO] Worker exiting (pid: 174529)
+[2022-07-14 09:45:21 +0200] [174539] [INFO] Booting worker with pid: 174539
+[2022-07-14 09:45:25 +0200] [174539] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:45:29 +0200] [174534] [DEBUG] GET /api/v1/downloadName/Ow02_czw_43_04.mp3
+[2022-07-14 09:45:29 +0200] [174534] [DEBUG] Closing connection. 
+[2022-07-14 09:45:29 +0200] [174539] [DEBUG] GET /api/v1/downloadName/Ow02_czw_43_04.mp3
+[2022-07-14 09:45:29 +0200] [174539] [DEBUG] GET /api/v1/downloadName/Ow02_czw_43_04.mp3
+[2022-07-14 09:45:29 +0200] [174539] [DEBUG] GET /api/v1/downloadName/Ow02_czw_43_04.mp3
+[2022-07-14 09:45:36 +0200] [174534] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:37 +0200] [174534] [INFO] Worker exiting (pid: 174534)
+[2022-07-14 09:45:37 +0200] [174539] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:37 +0200] [174539] [INFO] Worker exiting (pid: 174539)
+[2022-07-14 09:45:37 +0200] [174548] [INFO] Booting worker with pid: 174548
+[2022-07-14 09:45:37 +0200] [174549] [INFO] Booting worker with pid: 174549
+[2022-07-14 09:45:39 +0200] [174548] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:45:53 +0200] [174549] [DEBUG] GET /api/v1/prayerdate/2022-07-05
+[2022-07-14 09:45:56 +0200] [174548] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:56 +0200] [174549] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:45:56 +0200] [174549] [DEBUG] GET /api/v1/downloadName/Ow02_czw_30_04.mp3
+[2022-07-14 09:45:56 +0200] [174549] [DEBUG] Closing connection.
+[2022-07-14 09:45:56 +0200] [174549] [INFO] Worker exiting (pid: 174549)
+[2022-07-14 09:45:56 +0200] [174562] [INFO] Booting worker with pid: 174562
+[2022-07-14 09:45:57 +0200] [174548] [INFO] Worker exiting (pid: 174548)
+[2022-07-14 09:45:57 +0200] [174562] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:45:57 +0200] [174569] [INFO] Booting worker with pid: 174569
+[2022-07-14 09:46:05 +0200] [174569] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:05 +0200] [174562] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:06 +0200] [174569] [INFO] Worker exiting (pid: 174569)
+[2022-07-14 09:46:06 +0200] [174574] [INFO] Booting worker with pid: 174574
+[2022-07-14 09:46:06 +0200] [174562] [INFO] Worker exiting (pid: 174562)
+[2022-07-14 09:46:06 +0200] [174574] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:46:07 +0200] [174581] [INFO] Booting worker with pid: 174581
+[2022-07-14 09:46:13 +0200] [174574] [DEBUG] Closing connection. 
+[2022-07-14 09:46:18 +0200] [174581] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:18 +0200] [174574] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:19 +0200] [174574] [INFO] Worker exiting (pid: 174574)
+[2022-07-14 09:46:19 +0200] [174581] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:46:19 +0200] [174581] [DEBUG] Closing connection.
+[2022-07-14 09:46:19 +0200] [174581] [INFO] Worker exiting (pid: 174581)
+[2022-07-14 09:46:19 +0200] [174588] [INFO] Booting worker with pid: 174588
+[2022-07-14 09:46:19 +0200] [174589] [INFO] Booting worker with pid: 174589
+[2022-07-14 09:46:30 +0200] [174588] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:30 +0200] [174589] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:31 +0200] [174588] [INFO] Worker exiting (pid: 174588)
+[2022-07-14 09:46:31 +0200] [174589] [INFO] Worker exiting (pid: 174589)
+[2022-07-14 09:46:31 +0200] [174598] [INFO] Booting worker with pid: 174598
+[2022-07-14 09:46:32 +0200] [174599] [INFO] Booting worker with pid: 174599
+[2022-07-14 09:46:32 +0200] [174598] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:46:33 +0200] [174598] [DEBUG] Closing connection. 
+[2022-07-14 09:46:49 +0200] [174598] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:49 +0200] [174598] [INFO] Worker exiting (pid: 174598)
+[2022-07-14 09:46:50 +0200] [174599] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:50 +0200] [174610] [INFO] Booting worker with pid: 174610
+[2022-07-14 09:46:51 +0200] [174599] [INFO] Worker exiting (pid: 174599)
+[2022-07-14 09:46:51 +0200] [174615] [INFO] Booting worker with pid: 174615
+[2022-07-14 09:46:52 +0200] [174615] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:46:53 +0200] [174615] [DEBUG] Closing connection. 
+[2022-07-14 09:46:54 +0200] [174615] [DEBUG] GET /api/v1/downloadName/Ow02_czw_41_04.mp3
+[2022-07-14 09:46:59 +0200] [174615] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:46:59 +0200] [174615] [INFO] Worker exiting (pid: 174615)
+[2022-07-14 09:46:59 +0200] [174622] [INFO] Booting worker with pid: 174622
+[2022-07-14 09:46:59 +0200] [174610] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:47:00 +0200] [174610] [INFO] Worker exiting (pid: 174610)
+[2022-07-14 09:47:01 +0200] [174627] [INFO] Booting worker with pid: 174627
+[2022-07-14 09:47:06 +0200] [174627] [DEBUG] GET /api/v1/events/https://www.google.pl
+[2022-07-14 09:47:06 +0200] [174627] [DEBUG] GET /favicon.ico
+[2022-07-14 09:47:12 +0200] [174627] [DEBUG] GET /api/v1/events
+[2022-07-14 09:47:12 +0200] [174627] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:47:17 +0200] [174627] [DEBUG] Closing connection. 
+[2022-07-14 09:47:34 +0200] [174627] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:47:34 +0200] [174622] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:47:34 +0200] [174627] [INFO] Worker exiting (pid: 174627)
+[2022-07-14 09:47:35 +0200] [174635] [INFO] Booting worker with pid: 174635
+[2022-07-14 09:47:35 +0200] [174622] [INFO] Worker exiting (pid: 174622)
+[2022-07-14 09:47:35 +0200] [174636] [INFO] Booting worker with pid: 174636
+[2022-07-14 09:47:37 +0200] [174636] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:52:15 +0200] [174636] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:52:15 +0200] [174636] [INFO] Worker exiting (pid: 174636)
+[2022-07-14 09:52:16 +0200] [174648] [INFO] Booting worker with pid: 174648
+[2022-07-14 09:52:16 +0200] [174648] [ERROR] non-default argument follows default argument (app.py, line 22)
+Traceback (most recent call last):
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/basic-user/karmel-backend/wsgi.py", line 1, in <module>
+    from app import get_flask_app
+  File "/home/basic-user/karmel-backend/app.py", line 22
+    def get_flask_app(config: dict = None, env) -> app.Flask:
+                      ^
+SyntaxError: non-default argument follows default argument
+[2022-07-14 09:52:16 +0200] [174635] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:52:17 +0200] [174635] [INFO] Worker exiting (pid: 174635)
+[2022-07-14 09:52:17 +0200] [174650] [INFO] Booting worker with pid: 174650
+[2022-07-14 09:52:17 +0200] [174650] [ERROR] non-default argument follows default argument (app.py, line 22)
+Traceback (most recent call last):
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/basic-user/karmel-backend/wsgi.py", line 1, in <module>
+    from app import get_flask_app
+  File "/home/basic-user/karmel-backend/app.py", line 22
+    def get_flask_app(config: dict = None, env) -> app.Flask:
+                      ^
+SyntaxError: non-default argument follows default argument
+[2022-07-14 09:52:20 +0200] [174650] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:52:41 +0200] [174650] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:52:41 +0200] [174650] [INFO] Worker exiting (pid: 174650)
+[2022-07-14 09:52:41 +0200] [174653] [INFO] Booting worker with pid: 174653
+[2022-07-14 09:52:42 +0200] [174648] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:52:43 +0200] [174648] [INFO] Worker exiting (pid: 174648)
+[2022-07-14 09:52:43 +0200] [174658] [INFO] Booting worker with pid: 174658
+[2022-07-14 09:52:43 +0200] [174653] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:52:44 +0200] [174653] [DEBUG] Closing connection. 
+[2022-07-14 09:53:58 +0200] [174653] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:53:59 +0200] [174658] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:53:59 +0200] [174653] [INFO] Worker exiting (pid: 174653)
+[2022-07-14 09:53:59 +0200] [174658] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:53:59 +0200] [174658] [DEBUG] Closing connection.
+[2022-07-14 09:53:59 +0200] [174658] [INFO] Worker exiting (pid: 174658)
+[2022-07-14 09:53:59 +0200] [174668] [INFO] Booting worker with pid: 174668
+[2022-07-14 09:54:00 +0200] [174669] [INFO] Booting worker with pid: 174669
+[2022-07-14 09:54:08 +0200] [174669] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:54:09 +0200] [174668] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:54:09 +0200] [174669] [INFO] Worker exiting (pid: 174669)
+[2022-07-14 09:54:10 +0200] [174678] [INFO] Booting worker with pid: 174678
+[2022-07-14 09:54:10 +0200] [174668] [INFO] Worker exiting (pid: 174668)
+[2022-07-14 09:54:11 +0200] [174683] [INFO] Booting worker with pid: 174683
+[2022-07-14 09:54:12 +0200] [174683] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:54:14 +0200] [174683] [DEBUG] Closing connection. 
+[2022-07-14 09:54:56 +0200] [174678] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:54:56 +0200] [174683] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:54:56 +0200] [174678] [INFO] Worker exiting (pid: 174678)
+[2022-07-14 09:54:57 +0200] [174683] [INFO] Worker exiting (pid: 174683)
+[2022-07-14 09:54:57 +0200] [174707] [INFO] Booting worker with pid: 174707
+[2022-07-14 09:54:57 +0200] [174708] [INFO] Booting worker with pid: 174708
+[2022-07-14 09:54:58 +0200] [174707] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/gthread.py", line 92, in init_process
+    super().init_process()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/basic-user/karmel-backend/wsgi.py", line 3, in <module>
+    app = get_flask_app()
+  File "/home/basic-user/karmel-backend/app.py", line 49, in get_flask_app
+    'host': get_host(env),
+TypeError: get_host() takes 0 positional arguments but 1 was given
+[2022-07-14 09:54:58 +0200] [174707] [INFO] Worker exiting (pid: 174707)
+[2022-07-14 09:54:58 +0200] [174708] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/gthread.py", line 92, in init_process
+    super().init_process()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/basic-user/karmel-backend/karmelapp/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/basic-user/karmel-backend/wsgi.py", line 3, in <module>
+    app = get_flask_app()
+  File "/home/basic-user/karmel-backend/app.py", line 49, in get_flask_app
+    'host': get_host(env),
+TypeError: get_host() takes 0 positional arguments but 1 was given
+[2022-07-14 09:54:58 +0200] [174708] [INFO] Worker exiting (pid: 174708)
+[2022-07-14 09:55:07 +0200] [174711] [DEBUG] Current configuration:
+  config: ./gunicorn.conf.py
+  wsgi_app: None
+  bind: ['0.0.0.0:5000']
+  backlog: 2048
+  workers: 2
+  worker_class: sync
+  threads: 6
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 30
+  graceful_timeout: 30
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: True
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /home/basic-user/karmel-backend
+  daemon: True
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 1001
+  group: 1001
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: ./gunicorn_access.log
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: ./gunicorn_error.log
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: udp://localhost:514
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: KarmelBackend
+  default_proc_name: wsgi:app
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x7f6a76b10dc0>
+  on_reload: <function OnReload.on_reload at 0x7f6a76b10ee0>
+  when_ready: <function WhenReady.when_ready at 0x7f6a76b20040>
+  pre_fork: <function Prefork.pre_fork at 0x7f6a76b20160>
+  post_fork: <function Postfork.post_fork at 0x7f6a76b20280>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x7f6a76b203a0>
+  worker_int: <function WorkerInt.worker_int at 0x7f6a76b204c0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x7f6a76b205e0>
+  pre_exec: <function PreExec.pre_exec at 0x7f6a76b20700>
+  pre_request: <function PreRequest.pre_request at 0x7f6a76b20820>
+  post_request: <function PostRequest.post_request at 0x7f6a76b208b0>
+  child_exit: <function ChildExit.child_exit at 0x7f6a76b209d0>
+  worker_exit: <function WorkerExit.worker_exit at 0x7f6a76b20af0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x7f6a76b20c10>
+  on_exit: <function OnExit.on_exit at 0x7f6a76b20d30>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2022-07-14 09:55:07 +0200] [174711] [INFO] Starting gunicorn 20.1.0
+[2022-07-14 09:55:07 +0200] [174711] [DEBUG] Arbiter booted
+[2022-07-14 09:55:07 +0200] [174711] [INFO] Listening at: http://0.0.0.0:5000 (174711)
+[2022-07-14 09:55:07 +0200] [174711] [INFO] Using worker: gthread
+[2022-07-14 09:55:07 +0200] [174713] [INFO] Booting worker with pid: 174713
+[2022-07-14 09:55:07 +0200] [174711] [DEBUG] 2 workers
+[2022-07-14 09:55:07 +0200] [174714] [INFO] Booting worker with pid: 174714
+[2022-07-14 09:55:08 +0200] [174713] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:55:14 +0200] [174713] [DEBUG] Closing connection. 
+[2022-07-14 09:56:39 +0200] [174714] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:56:39 +0200] [174714] [INFO] Worker exiting (pid: 174714)
+[2022-07-14 09:56:39 +0200] [174726] [INFO] Booting worker with pid: 174726
+[2022-07-14 09:56:40 +0200] [174713] [INFO] Worker reloading: /home/basic-user/karmel-backend/database.py modified
+[2022-07-14 09:56:40 +0200] [174713] [INFO] Worker exiting (pid: 174713)
+[2022-07-14 09:56:41 +0200] [174731] [INFO] Booting worker with pid: 174731
+[2022-07-14 09:56:46 +0200] [174731] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:57:19 +0200] [174731] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 09:57:19 +0200] [174731] [INFO] Worker exiting (pid: 174731)
+[2022-07-14 09:57:19 +0200] [174738] [INFO] Booting worker with pid: 174738
+[2022-07-14 09:57:19 +0200] [174726] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 09:57:20 +0200] [174726] [INFO] Worker exiting (pid: 174726)
+[2022-07-14 09:57:20 +0200] [174743] [INFO] Booting worker with pid: 174743
+[2022-07-14 09:57:21 +0200] [174743] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:57:23 +0200] [174743] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:57:24 +0200] [174743] [DEBUG] Closing connection. 
+[2022-07-14 09:57:36 +0200] [174738] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 09:57:37 +0200] [174743] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 09:57:37 +0200] [174743] [INFO] Worker exiting (pid: 174743)
+[2022-07-14 09:57:37 +0200] [174738] [INFO] Worker exiting (pid: 174738)
+[2022-07-14 09:57:38 +0200] [174750] [INFO] Booting worker with pid: 174750
+[2022-07-14 09:57:38 +0200] [174751] [INFO] Booting worker with pid: 174751
+[2022-07-14 09:57:38 +0200] [174750] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:58:22 +0200] [174750] [DEBUG] GET /api/v1/prayerdate/2022-07-05
+[2022-07-14 09:58:25 +0200] [174751] [DEBUG] GET /api/v1/downloadName/Ow02_czw_30_04.mp3
+[2022-07-14 09:59:50 +0200] [174750] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:59:50 +0200] [174751] [INFO] Worker reloading: /home/basic-user/karmel-backend/app.py modified
+[2022-07-14 09:59:51 +0200] [174751] [INFO] Worker exiting (pid: 174751)
+[2022-07-14 09:59:51 +0200] [174767] [INFO] Booting worker with pid: 174767
+[2022-07-14 09:59:51 +0200] [174750] [INFO] Worker exiting (pid: 174750)
+[2022-07-14 09:59:51 +0200] [174768] [INFO] Booting worker with pid: 174768
+[2022-07-14 09:59:54 +0200] [174768] [DEBUG] GET /api/v1/events/
+[2022-07-14 09:59:54 +0200] [174768] [DEBUG] Closing connection. 
+[2022-07-14 10:00:06 +0200] [174767] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 10:00:06 +0200] [174768] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 10:00:06 +0200] [174768] [INFO] Worker exiting (pid: 174768)
+[2022-07-14 10:00:06 +0200] [174767] [INFO] Worker exiting (pid: 174767)
+[2022-07-14 10:00:07 +0200] [174779] [INFO] Booting worker with pid: 174779
+[2022-07-14 10:00:07 +0200] [174784] [INFO] Booting worker with pid: 174784
+[2022-07-14 10:00:08 +0200] [174784] [DEBUG] GET /api/v1/events/
+[2022-07-14 10:00:11 +0200] [174784] [DEBUG] GET /api/v2/events/
+[2022-07-14 10:00:38 +0200] [174779] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 10:00:39 +0200] [174784] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 10:00:39 +0200] [174784] [INFO] Worker exiting (pid: 174784)
+[2022-07-14 10:00:39 +0200] [174779] [INFO] Worker exiting (pid: 174779)
+[2022-07-14 10:00:39 +0200] [174791] [INFO] Booting worker with pid: 174791
+[2022-07-14 10:00:40 +0200] [174792] [INFO] Booting worker with pid: 174792
+[2022-07-14 10:00:43 +0200] [174791] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 10:00:43 +0200] [174792] [INFO] Worker reloading: /home/basic-user/karmel-backend/wsgi.py modified
+[2022-07-14 10:00:44 +0200] [174791] [INFO] Worker exiting (pid: 174791)
+[2022-07-14 10:00:44 +0200] [174792] [INFO] Worker exiting (pid: 174792)
+[2022-07-14 10:00:45 +0200] [174801] [INFO] Booting worker with pid: 174801
+[2022-07-14 10:00:45 +0200] [174802] [INFO] Booting worker with pid: 174802
+[2022-07-14 10:00:50 +0200] [174802] [DEBUG] GET /api/v1/events/
+[2022-07-14 10:26:42 +0200] [174801] [DEBUG] CONNECT dianying.taobao.com:443
+[2022-07-14 10:26:42 +0200] [174802] [DEBUG] CONNECT pv.sohu.com:443
+[2022-07-14 10:26:42 +0200] [174802] [DEBUG] GET /linksubmit/push.js
+[2022-07-14 10:26:42 +0200] [174802] [DEBUG] Closing connection.
+[2022-07-14 10:26:43 +0200] [174801] [DEBUG] Closing connection. 
+[2022-07-14 10:26:43 +0200] [174802] [DEBUG] Closing connection. 
+[2022-07-14 10:26:57 +0200] [174802] [DEBUG] Ignored premature client disconnection. No more data after: b'\x05\x01\x00'
+[2022-07-14 10:30:15 +0200] [174802] [DEBUG] GET /api/v1/events/
+[2022-07-14 10:30:22 +0200] [174802] [DEBUG] Closing connection. 
