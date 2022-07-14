@@ -794,3 +794,8 @@ TypeError: get_host() takes 0 positional arguments but 1 was given
 [2022-07-14 10:26:57 +0200] [174802] [DEBUG] Ignored premature client disconnection. No more data after: b'\x05\x01\x00'
 [2022-07-14 10:30:15 +0200] [174802] [DEBUG] GET /api/v1/events/
 [2022-07-14 10:30:22 +0200] [174802] [DEBUG] Closing connection. 
+[2022-07-14 11:37:11 +0200] [174801] [DEBUG] GET /api/v1/events/
+[2022-07-14 11:41:23 +0200] [174802] [DEBUG] GET /api/v1/downloadName/Ow02_czw_41_04.mp3
+[2022-07-14 11:44:12 +0200] [174801] [DEBUG] GET /api/v1/prayerdate/2022-07-05
+[2022-07-14 11:44:12 +0200] [174802] [DEBUG] GET /api/v1/prayerdate/2022-07-05
+[2022-07-14 11:51:53 +0200] [174802] [DEBUG] GET /api/v1/prayerdate/2022-06-24
