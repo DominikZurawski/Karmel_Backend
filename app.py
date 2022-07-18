@@ -7,7 +7,6 @@ from gridfs import GridFS
 from flask_debugtoolbar import DebugToolbarExtension
 
 from database import get_database, get_host
-
 from mongoengine import connect
 
 # local packages
