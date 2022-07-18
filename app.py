@@ -1,5 +1,4 @@
 # flask packages
-
 from flask import Flask, app
 from flask_restful import Api
 from flask_mongoengine import MongoEngine, MongoEngineSessionInterface
