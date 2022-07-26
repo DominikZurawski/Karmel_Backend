@@ -19,7 +19,7 @@ import os
 #run aplication con gunicorn:
 #gunicorn --workers=2 --bind 0.0.0.0:5000  --name KarmelBackend --threads=6 --access-logfile ./gunicorn_access.log --error-logfile ./gunicorn_error.log --daemon --log-level=debug --reload  wsgi:app
 
-def get_flask_app(config: dict = None, env="TEST") -> app.Flask:
+def get_flask_app(config: dict = None) -> app.Flask:
     """
     Initializes Flask app with given configuration.
     Main entry point for wsgi (gunicorn) server.
@@ -67,10 +67,7 @@ def get_flask_app(config: dict = None, env="TEST") -> app.Flask:
     
 
     # init api and routes
-    if env == "TEST":
-        api = Api(app=flask_app, prefix="/api/v1")
-    elif env == "PROD":
-        api = Api(app=flask_app, prefix="/api/v2")
+    api = Api(app=flask_app, prefix="/api/v1")
     create_routes(api=api)
 
     # init mongoengine
