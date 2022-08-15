@@ -21,7 +21,7 @@ import os
 
 
 
-def get_flask_app(config: dict = None) -> app.Flask:
+def get_flask_app(config: dict = None, env="TEST") -> app.Flask:
     """
     Initializes Flask app with given configuration.
     Main entry point for wsgi (gunicorn) server.
@@ -36,17 +36,18 @@ def get_flask_app(config: dict = None) -> app.Flask:
     #flask_app.config['DEBUG_TB_PANELS'] = ['flask_mongoengine.panels.MongoDebugPanel']
     flask_app.config['JSONIFY_MIMETYPE'] = 'application/json'
 
+
     # not working
     #flask_app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
     flask_app.debug = True
 
     # default mongodb configuration
     default_config = {'MONGODB_SETTINGS': {
-                    #'db': '*****tg',
-                    #'host': 'mongodb',
-                    'host': get_host(),
+                    #'db': 'Karmel',
+                    #'host': '***.**.**.***',
+                    'host': get_host(env),
                     #'port': 27017,
-                    #'username': 'mongo***',
+                    #'username': '***',
                     #'password': '******',
                     #'authentication_source': 'admin',
                     #'alias':'default'
@@ -68,7 +69,10 @@ def get_flask_app(config: dict = None) -> app.Flask:
     
 
     # init api and routes
-    api = Api(app=flask_app, prefix="/api/v1")
+    if env == "TEST":
+        api = Api(app=flask_app, prefix="/api/v1")
+    elif env == "PROD":
+        api = Api(app=flask_app, prefix="/api/v2")
     create_routes(api=api)
 
     # init mongoengine

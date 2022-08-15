@@ -1,16 +1,16 @@
-import os
 from flask_mongoengine import MongoEngine
 import pymongo
-#from decouple import config
+from decouple import config
 from flask import current_app
 
-def get_host():
-    return 'mongodb://' + os.environ['MONGODB_USERNAME'] + ':' + os.environ['MONGODB_PASSWORD'] + \
-    '@' + os.environ['MONGODB_HOSTNAME'] + ':' + os.environ['MONGODB_PORT'] + '/' + os.environ['MONGODB_DATABASE'] + \
-    '?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false'
-                    
+def get_host(env):
+    if env == "TEST":
+        return config('TEST_DATABASE_URL')
+    elif env == "PROD":
+        return config('PROD_DATABASE_URL')
+
 def get_db_instance():
-	return os.environ['MONGODB_DATABASE']
+	return 'Karmel-stg'
 
 def get_database(flask_app):
     db = MongoEngine(app=flask_app)
@@ -24,3 +24,6 @@ def get_db(): # get a connection to the db above
        print("Could not connect to MongoDB: %s" % e)
        sys.exit(1)
     return conn
+
+
+
