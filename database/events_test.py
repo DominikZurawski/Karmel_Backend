@@ -1,25 +1,13 @@
 from datetime import datetime
 #import gridfs
 #from mongoengine import *
-#from flask import Response, request, jsonify
-
-#import json
-#from bson import json_util
-
 import pymongo
 from PIL import Image
 
 from mongoengine import *
-from models.monasteries import Monasteries
+from karmel_backend.app.models.monasteries import Monasteries
 
 connect = connect(host="mongodb://mongoAdmin:M3hGjZXfQdp53XVL@localhost:27017/Karmel-stg?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false")
-'''
-KIND = ('Sisters', 'Brothers')
-    #(('S', 'Sisters'),
-        #('B', 'Brothers '))
-EVENTS = ("Rekolekcje")
-'''
-
 
 class Events(Document):
     id_event = IntField(unique = True)
@@ -32,21 +20,21 @@ class Events(Document):
     location = ReferenceField(Monasteries)
 
 
-_id = 1000
-events = 3
+_id = 1010
+events = 2
 titles = "KDM"
 
 E = Events(id_event = events)
 E.title = titles
-E.description = "Karmelitańskie Dni Młodych"
+E.description = "Karmelitańskie Dni Młodzieży"
 E.save()
 
 i = Events.objects(id_event = events).get()
-i.start_date = datetime(2022,7,28)
+i.start_date = datetime(2023,7,28)
 i.save()
 
 j = Events.objects(id_event = events).get()
-j.end_date = datetime(2022,7,31)
+j.end_date = datetime(2023,7,31)
 j.save()
 
 o = Events.objects(id_event = events).get()
