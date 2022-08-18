@@ -7,7 +7,7 @@ from PIL import Image
 from mongoengine import *
 from karmel_backend.app.models.monasteries import Monasteries
 
-connect = connect(host="mongodb://mongoAdmin:M3hGjZXfQdp53XVL@localhost:27017/Karmel-stg?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false")
+connect = connect(host="mongodb://***:****@localhost:27017/Karmel-stg?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false")
 
 class Events(Document):
     id_event = IntField(unique = True)
@@ -49,7 +49,7 @@ o.location = Monasteries.objects(id_monastery= _id).get()
 o.save()
 
 '''
-myclient = pymongo.MongoClient("mongodb://mongoAdmin:M3hGjZXfQdp53XVL@localhost:27017/Karmel-stg?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false")
+myclient = pymongo.MongoClient("mongodb://****:****@localhost:27017/Karmel-stg?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false")
 mydb = myclient.test
 mydb = myclient['Karmel-stg']
 
