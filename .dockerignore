@@ -1,3 +1,5 @@
 Dockerfile 
 .git 
 .gitignore
+*.mp3
+*.jpg

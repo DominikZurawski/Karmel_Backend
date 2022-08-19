@@ -9,9 +9,9 @@ services:
     container_name: flask
     restart: unless-stopped
     environment:
-      MONGODB_DATABASE: ***-stg
-      MONGODB_USERNAME: ****
-      MONGODB_PASSWORD: *********
+      MONGODB_DATABASE: *******
+      MONGODB_USERNAME: ******
+      MONGODB_PASSWORD: *******
       MONGODB_HOSTNAME: mongodb
       MONGODB_PORT: 27017
     volumes:
@@ -21,16 +21,16 @@ services:
     networks:
       - frontend
       - backend
+    image: domino675/karmel_flask:empty
 
   mongodb:
-    image: mongo:latest
     container_name: mongodb
     restart: unless-stopped
     command: mongod --auth
     environment:
       MONGO_INITDB_ROOT_USERNAME: *****
-      MONGO_INITDB_ROOT_PASSWORD: ******
-      MONGO_INITDB_DATABASE: testdb
+      MONGO_INITDB_ROOT_PASSWORD: *******
+      MONGO_INITDB_DATABASE: ******
       MONGODB_DATA_DIR: /data/db
       MONDODB_LOG_DIR: /dev/null
     volumes:
@@ -39,13 +39,13 @@ services:
       - "27017:27017"
     networks:
       - backend
+    image: domino675/karmel_mongodb:empty
 
 
   webserver:
     build:
       context: nginx
       dockerfile: Dockerfile
-    image: "laztoum/flask-gunicorn-nginx"
     container_name: webserver
     restart: unless-stopped
     environment:
@@ -62,6 +62,7 @@ services:
       - flask
     networks:
       - frontend
+    image: domino675/karmel_web:empty
 
 
 networks:
