@@ -4,11 +4,9 @@ from flask_restful import Api
 from flask_mongoengine import MongoEngine, MongoEngineSessionInterface
 from flask_jwt_extended import JWTManager
 from gridfs import GridFS
-#from flask_debugtoolbar import DebugToolbarExtension
-from decouple import config as app_config
+from flask_debugtoolbar import DebugToolbarExtension
 
-from database import get_database
-
+from database import get_database, get_host
 from mongoengine import connect
 
 # local packages
@@ -19,6 +17,9 @@ import os
 
 #run aplication con gunicorn:
 #gunicorn --workers=2 --bind 0.0.0.0:5000  --name KarmelBackend --threads=6 --access-logfile ./gunicorn_access.log --error-logfile ./gunicorn_error.log --daemon --log-level=debug --reload  wsgi:app
+
+
+
 
 def get_flask_app(config: dict = None) -> app.Flask:
     """
@@ -35,18 +36,17 @@ def get_flask_app(config: dict = None) -> app.Flask:
     #flask_app.config['DEBUG_TB_PANELS'] = ['flask_mongoengine.panels.MongoDebugPanel']
     flask_app.config['JSONIFY_MIMETYPE'] = 'application/json'
 
-
     # not working
     #flask_app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
     flask_app.debug = True
 
     # default mongodb configuration
     default_config = {'MONGODB_SETTINGS': {
-                    #'db': 'Karmel',
-                    #'host': '***.**.**.***',
-                    'host': app_config('DATABASE_URL'),
+                    #'db': '*****tg',
+                    #'host': 'mongodb',
+                    'host': get_host(),
                     #'port': 27017,
-                    #'username': '***',
+                    #'username': 'mongo***',
                     #'password': '******',
                     #'authentication_source': 'admin',
                     #'alias':'default'
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     
     #dbs = app.db
     #app.debug = True
-    app.run(host="0.0.0.0", port=8080)#,debug=True)
+    app.run(host="0.0.0.0")#,debug=True)
 
 
 
