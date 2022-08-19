@@ -9,8 +9,7 @@ docker-compose up -d
 ```
 
 If you want run empty image without data on mongodb use docker-compose.ymp script :
-
-<sup>
+```
 version: '3'
 services:
 
@@ -91,4 +90,4 @@ volumes:
     driver: local
   nginxdata:
     driver: local
-</sup>
+    ```
