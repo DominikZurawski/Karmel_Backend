@@ -1,7 +1,7 @@
-FROM laztoum/flask-gunicorn-nginx
+FROM nginx:alpine
 
 
-COPY conf.d/app.conf /etc/nginx/conf.d/app.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80 443
-CMD ["nginx"]
+#CMD ["nginx"]
