@@ -42,4 +42,5 @@ jobs:
             password: ${{secrets.DOCKER_PASSWORD}}
             repository: ${{secrets.DOCKERHUB_REPO_FLASK}}
             tag_with_ref: true
+            push: true
             tags: ${{secrets.DOCKERHUB_REPO_FLASK}}
