@@ -27,7 +27,7 @@ jobs:
         steps:
         - name: Check docker installed or not
           run: docker run hello-world 
-          working-directory: ./flask
+          working-directory: /flask
         - name: Push FLASK to docker hub
           uses: docker/build-push-action@v2
           with:
