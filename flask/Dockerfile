@@ -3,7 +3,7 @@
 FROM python:3.8-slim-buster
 
 COPY ./flask/app flask/app
-WORKDIR /app
+WORKDIR /flask/app
 
 #COPY requirements.txt /
 RUN python -m pip install --upgrade pip
