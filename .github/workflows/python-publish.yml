@@ -47,5 +47,5 @@ jobs:
           with:
             file: flask/Dockerfile
             push: true
-            tags: ${{ steps.meta.outputs.tags }}
-            labels: ${{ steps.meta.outputs.labels }}    
+            tags: ${{secrets.DOCKERHUB_REPO_FLASK}} 
+
