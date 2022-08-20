@@ -2,7 +2,7 @@
 
 FROM python:3.8-slim-buster
 
-COPY ./app /app
+COPY ./flask/app flask/app
 WORKDIR /app
 
 #COPY requirements.txt /
