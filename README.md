@@ -15,7 +15,7 @@ services:
 
   flask:
     build: .
-    command: ./gunicorn.sh #python -u app.py
+    command: ./gunicorn.sh 
     ports:
       - "5000:5000"
     container_name: flask
@@ -33,7 +33,7 @@ services:
     networks:
       - frontend
       - backend
-    image: domino675/karmel_flask:empty
+    image: domino675/karmel_flask:latest
 
   mongodb:
     container_name: mongodb
@@ -74,7 +74,7 @@ services:
       - flask
     networks:
       - frontend
-    image: domino675/karmel_web:empty
+    image: domino675/karmel_web:latest
 
 
 networks:
