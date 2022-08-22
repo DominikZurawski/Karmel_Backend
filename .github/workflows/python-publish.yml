@@ -5,43 +5,21 @@ on:
       branches: [ master ]
       
 jobs:
-    deploy:
-       runs-on: ubuntu-latest
-       strategy:
-         fail-fast: false
-         matrix:
-            python-version: [3.8]
-       steps:
-        - uses: actions/checkout@master
-        - name: Initialize Python 3.7
-          uses: actions/setup-python@v4.2.0
-          with:
-            python-version: ${{matrix.python-version}}
-        - name: Install dependencies
-          run: |
-            python -m pip install --upgrade pip
-            pip install -r ./flask/app/requirements.txt  
-        - name: Check docker installed or not
-          run: docker run hello-world     
+    build:
+        uses: DominikZurawski/Karmel_Backend/.github/workflows/reusing.yml@master
+        with:
+          image_name: my-awesome-app
+          tag: $GITHUB_RUN_NUMBER
+        secrets:
+          registry_username: ${{secrets.REGISTRY_USERNAME}}
+          registry_password: ${{secrets.REGISTRY_PASSWORD}}
+      
     push_image_to_Docker_Hub:
         runs-on: ubuntu-latest
-        needs: deploy
         defaults:
             run:
                 working-directory: ./flask
-        steps:
-        - name: Log in to Docker Hub
-          uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-          with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-            
-        - name: Extract metadata (tags, labels) for Docker
-          id: meta
-          uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
-          with:
-            images: ${{secrets.DOCKERHUB_REPO_FLASK}}    
-            
+        steps:           
         - name: Push FLASK to docker hub
           uses: docker/build-push-action@v2
           with:
