@@ -40,5 +40,5 @@ jobs:
           run: docker tag karmel_backend_flask:latest ${{secrets.DOCKERHUB_REPO_FLASK}}      
 
         - name: Push FLASK to docker hub          
-          run: docker-compose push
+          run: docker push ${{secrets.DOCKERHUB_REPO_FLASK}}  
 
