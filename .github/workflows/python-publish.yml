@@ -21,7 +21,9 @@ jobs:
         steps:  
         - uses: actions/checkout@v2
         - name: Build the stack
-          run: docker-compose up -d --buld
+          run: docker-compose up -d --build
+        - name: change tag
+          run: docker tag karmel_backend_flask ${{secrets.DOCKERHUB_REPO_FLASK}}
           
         - uses: actions/checkout@v2    
         - name: Push FLASK to docker hub          
