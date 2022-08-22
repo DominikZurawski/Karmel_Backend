@@ -2,7 +2,7 @@ version: '3'
 services:
 
   flask:
-    container_name: domino675/karmel_flask:latest
+    container_name: flask
     build: 
       context: ./flask
       dockerfile: Dockerfile
@@ -23,7 +23,7 @@ services:
     networks:
       - frontend
       - backend
-    #image: domino675/karmel_flask:latest
+    image: domino675/karmel_flask:latest
 
   mongodb:
     container_name: mongodb
