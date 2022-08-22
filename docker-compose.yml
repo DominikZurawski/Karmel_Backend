@@ -1,0 +1,84 @@
+version: '3'
+services:
+
+  flask:
+    container_name: flask
+    build: 
+      context: ./flask
+      dockerfile: Dockerfile
+    #command: ./gunicorn.sh
+    ports:
+      - "5000:5000"    
+    restart: unless-stopped
+    environment:      
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+      - MONGO_INITDB_DATABASE
+      - MONGODB_HOSTNAME
+      - MONGODB_PORT
+    volumes:
+      - ./flask:/flask
+    depends_on:
+      - mongodb
+    networks:
+      - frontend
+      - backend
+    #image: domino675/karmel_flask:latest
+
+  mongodb:
+    container_name: mongodb
+    build:
+      context: ./mongodb
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    command: mongod --auth
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+      - MONGO_INITDB_DATABASE
+      - MONGODB_DATA_DIR
+      - MONDODB_LOG_DIR
+    volumes:
+      - ./mongodb/db:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - backend
+    #image: domino675/karmel_mongodb:latest
+
+  webserver:
+    container_name: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      APP_ENV: "prod"
+      APP_NAME: "nginx"
+      APP_DEBUG: "true"
+      SERVICE_NAME: "nginx"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+    depends_on:
+      - flask
+    networks:
+      - frontend
+    #image: domino675/karmel_web:latest
+
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+volumes:
+  mongodbdata:
+    driver: local
+  app:
+    driver: local
+  nginxdata:
+    driver: local
