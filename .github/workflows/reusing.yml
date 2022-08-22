@@ -34,7 +34,7 @@ jobs:
             python -m pip install --upgrade pip
             pip install -r ./flask/app/requirements.txt  
             
-     docker:
+    docker:
         runs-on: ubuntu-latest
         steps:
           - name: Check docker installed or not
