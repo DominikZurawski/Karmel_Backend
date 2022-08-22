@@ -24,7 +24,7 @@ jobs:
           run: docker-compose up -d --build
           
         - name: change tag
-          run: docker tag karmel_backend_flask:latest ${{secrets.DOCKERHUB_REPO_FLASK}}      
+          run: docker tag karmel_backend_flask ${{secrets.DOCKERHUB_REPO_FLASK}}      
 
         - name: Push FLASK to docker hub          
           run: docker-compose push
