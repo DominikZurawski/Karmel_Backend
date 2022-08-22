@@ -23,7 +23,7 @@ services:
     networks:
       - frontend
       - backend
-    image: domino675/karmel_flask:latest
+    #image: domino675/karmel_flask:latest
 
   mongodb:
     container_name: mongodb
