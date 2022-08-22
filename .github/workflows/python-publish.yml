@@ -25,4 +25,4 @@ jobs:
           with:
             file: flask/Dockerfile
             push: true
-            tags: ${{secrets.DOCKERHUB_REPO_FLASK}} 
+            tags: ${{secrets.DOCKERHUB_REPO_FLASK}}
