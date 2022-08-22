@@ -2,7 +2,7 @@ version: '3'
 services:
 
   flask:
-    container_name: flask
+    container_name: domino675/karmel_flask:latest
     build: 
       context: ./flask
       dockerfile: Dockerfile
