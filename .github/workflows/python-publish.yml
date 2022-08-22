@@ -7,9 +7,6 @@ on:
 jobs:
     build:
         uses: DominikZurawski/Karmel_Backend/.github/workflows/Reusing.yml@master
-        with:
-          image_name: my-awesome-app
-          tag: $GITHUB_RUN_NUMBER
         secrets:
           registry_username: ${{secrets.REGISTRY_USERNAME}}
           registry_password: ${{secrets.REGISTRY_PASSWORD}}
