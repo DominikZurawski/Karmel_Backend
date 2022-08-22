@@ -3,8 +3,6 @@ name: Python Package
 on:
     push:
       branches: [ master ]
-    workflow_dispatch:
-
 jobs:
     build:
         uses: DominikZurawski/Karmel_Backend/.github/workflows/Reusing.yml@master
@@ -15,6 +13,7 @@ jobs:
       
     push_image_to_Docker_Hub:
         runs-on: ubuntu-latest
+        needs: build
         defaults:
             run:
                 working-directory: ./flask
