@@ -22,10 +22,10 @@ jobs:
         - uses: actions/checkout@v2
         - name: Build the stack
           run: docker-compose up -d --build
-        - name: change tag
-          run: docker tag karmel_backend_flask ${{secrets.DOCKERHUB_REPO_FLASK}}
           
-        - uses: actions/checkout@v2    
+        - name: change tag
+          run: docker tag karmel_backend_flask ${{secrets.DOCKERHUB_REPO_FLASK}}      
+
         - name: Push FLASK to docker hub          
           run: docker-compose push
 
