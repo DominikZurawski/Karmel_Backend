@@ -4,7 +4,6 @@ from flask_restful import Api
 from flask_mongoengine import MongoEngine, MongoEngineSessionInterface
 from flask_jwt_extended import JWTManager
 from gridfs import GridFS
-from flask_debugtoolbar import DebugToolbarExtension
 
 from database import get_database, get_host
 from mongoengine import connect
