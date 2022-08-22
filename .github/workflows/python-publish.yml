@@ -1,6 +1,7 @@
 name: Python Package
 
 on:
+    workflow_dispatch:
     push:
       branches: [ master ]
 jobs:
@@ -23,9 +24,18 @@ jobs:
         - name: Build the stack
           run: docker-compose up -d --build
           
-        - name: check images
-          run: docker images -a
-          
+        - name: Log in to Docker Hub
+          uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+          with:
+              username: ${{ secrets.DOCKER_USERNAME }}
+              password: ${{ secrets.DOCKER_PASSWORD }}
+
+        - name: Extract metadata (tags, labels) for Docker
+          id: meta
+          uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+          with:
+              images: ${{secrets.DOCKERHUB_REPO_FLASK}}          
+         
         - name: change tag
           run: docker tag karmel_backend_flask:latest ${{secrets.DOCKERHUB_REPO_FLASK}}      
 
