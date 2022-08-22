@@ -6,7 +6,7 @@ on:
       
 jobs:
     build:
-        uses: DominikZurawski/Karmel_Backend/.github/workflows/reusing.yml@master
+        uses: DominikZurawski/Karmel_Backend/.github/workflows/Reusing.yml@master
         with:
           image_name: my-awesome-app
           tag: $GITHUB_RUN_NUMBER
