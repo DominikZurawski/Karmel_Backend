@@ -8,8 +8,8 @@ jobs:
     build:
         uses: DominikZurawski/Karmel_Backend/.github/workflows/Reusing.yml@master
         secrets:
-          registry_username: ${{secrets.REGISTRY_USERNAME}}
-          registry_password: ${{secrets.REGISTRY_PASSWORD}}
+          registry_username: ${{secrets.DOCKER_USERNAME}}
+          registry_password: ${{secrets.DOCKER_PASSWORD}}
       
     push_image_to_Docker_Hub:
         runs-on: ubuntu-latest
