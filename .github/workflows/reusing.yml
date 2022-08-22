@@ -2,16 +2,12 @@ name: Reusable workflow
 
 on:
   workflow_call:
-    inputs:
-      image_name:
-        required: true
-        type: string
-      tag: 
-        type: string
     secrets:
-      registry_username:
+      DOCKER_USERNAME:
         required: true
-      registry_password:
+      DOCKER_PASSWORD:
+        required: true
+      DOCKERHUB_REPO_FLASK:
         required: true
       
 jobs:
