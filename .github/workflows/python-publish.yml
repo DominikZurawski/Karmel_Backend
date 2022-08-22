@@ -14,10 +14,12 @@ jobs:
     push_image_to_Docker_Hub:
         runs-on: ubuntu-latest
         needs: build
-        defaults:
-            run:
-                working-directory: ./flask
-        steps:           
+
+        steps:  
+        - uses: actions/checkout@v2
+        - name: Build the stack
+          run: docker-compose up -d
+          
         - name: Push FLASK to docker hub
           uses: docker/build-push-action@v2
           with:
