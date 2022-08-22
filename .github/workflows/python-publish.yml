@@ -21,11 +21,9 @@ jobs:
         steps:  
         - uses: actions/checkout@v2
         - name: Build the stack
-          run: docker-compose up -d
+          run: docker-compose up -d --buld
           
-        - name: Push FLASK to docker hub
-          uses: docker/build-push-action@v2
-          with:
-            file: flask/Dockerfile
-            push: true
-            tags: ${{secrets.DOCKERHUB_REPO_FLASK}}
+        - uses: actions/checkout@v2    
+        - name: Push FLASK to docker hub          
+          run: docker-compose push
+
