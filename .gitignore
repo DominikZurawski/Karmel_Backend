@@ -30,7 +30,6 @@ build
 
 .env
 *.log
-docker-compose.yml
 __pycache__/*
 *.mp3
 *.jpg
