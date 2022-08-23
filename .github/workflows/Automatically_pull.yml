@@ -11,11 +11,13 @@ jobs:
       with:
         host: ${{ secrets.IP }}
         username: ${{ secrets.USER }}
-        password: ${{ secrets.SSH_PRIVATE_KEY }}
+        password: ${{ secrets.PASS }}
+        #password: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         script: |
           cd karmel_backend/
           ${{ secrets.SCRIPT_1}}
           sudo docker-compose down
+          ${{ secrets.PASS}}
           sudo docker-compose up -d
           
