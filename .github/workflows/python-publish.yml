@@ -12,9 +12,8 @@ jobs:
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
           DOCKERHUB_REPO_FLASK: ${{secrets.DOCKERHUB_REPO_FLASK}}
       
-    push_image_to_Docker_Hub:
+    push_to_DockerHub:
         runs-on: ubuntu-latest
-        needs: build
         defaults:
             run:
                 working-directory: ./
