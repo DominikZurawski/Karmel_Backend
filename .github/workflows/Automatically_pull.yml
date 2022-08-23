@@ -14,6 +14,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd karmel_backend/
-          ${{ secrets.SCRIPT_1}}
+          git pull origin master #${{ secrets.SCRIPT_1}}
           sudo docker-compose down
+          ${{ secrets.PASS}}
           sudo docker-compose up -d
