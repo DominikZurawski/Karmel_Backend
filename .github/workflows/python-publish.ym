@@ -10,7 +10,7 @@ jobs:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
           DOCKERHUB_REPO_FLASK: ${{secrets.DOCKERHUB_REPO_FLASK}}
-      
+     
     push_to_DockerHub:
         runs-on: ubuntu-latest
         defaults:
