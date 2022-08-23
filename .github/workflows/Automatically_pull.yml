@@ -6,12 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v0.1.5
       with:
         host: ${{ secrets.IP }}
-        username: ${{ secrets.USER }}
-        password: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASS }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        
         script: |
           cd karmel_backend/
           git pull origin master 
