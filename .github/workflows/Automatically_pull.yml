@@ -12,9 +12,10 @@ jobs:
         port: ${{ secrets.PORT }}
         username: ${{ secrets.USER }}
         password: ${{ secrets.PASS }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        #key: ${{ secrets.SSH_PRIVATE_KEY }}
         
         script: |
+          ls -a
           cd karmel_backend/
           git pull origin master 
           sudo docker-compose down
