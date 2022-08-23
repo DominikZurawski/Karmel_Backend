@@ -1,24 +1,19 @@
 name: Remote SSH
 on: [push]
 jobs:
-
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
-      uses: invi5H/ssh-action@v1.0.0
-      with:        
-        SSH_USER: ${{ secrets.USER }}
-        SSH_HOST: ${{ secrets.IP }}
-        SSH_PORT: ${{ secrets.PORT }}
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        #password: ${{ secrets.SSH_PRIVATE_KEY }}
-        
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.IP }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.PORT }}
         script: |
           cd karmel_backend/
           ${{ secrets.SCRIPT_1}}
           sudo docker-compose down
-          ${{ secrets.PASS}}
           sudo docker-compose up -d
-          
