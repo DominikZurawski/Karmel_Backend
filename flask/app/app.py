@@ -17,9 +17,6 @@ import os
 #run aplication con gunicorn:
 #gunicorn --workers=2 --bind 0.0.0.0:5000  --name KarmelBackend --threads=6 --access-logfile ./gunicorn_access.log --error-logfile ./gunicorn_error.log --daemon --log-level=debug --reload  wsgi:app
 
-
-
-
 def get_flask_app(config: dict = None) -> app.Flask:
     """
     Initializes Flask app with given configuration.
@@ -55,8 +52,7 @@ def get_flask_app(config: dict = None) -> app.Flask:
     
     # configure app
     config = default_config if config is None else config
-    flask_app.config.update(config)
-    
+    flask_app.config.update(config)    
 
     # load config variables
     if 'MONGODB_URI' in os.environ:
@@ -81,14 +77,10 @@ def get_flask_app(config: dict = None) -> app.Flask:
 
     return flask_app
 
-
 if __name__ == '__main__':
     # Main entry point when run in stand-alone mode.
     #must be set: iptables -I INPUT -p tcp --dport 5000 -j ACCEPT
     app = get_flask_app()
-    
-    #dbs = app.db
-    #app.debug = True
     app.run()#host="0.0.0.0")#,debug=True)
 
 
