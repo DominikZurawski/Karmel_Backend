@@ -13,7 +13,7 @@ from api.routes import create_routes
 
 # external packages
 import os
-#elo
+
 #run aplication con gunicorn:
 #gunicorn --workers=2 --bind 0.0.0.0:5000  --name KarmelBackend --threads=6 --access-logfile ./gunicorn_access.log --error-logfile ./gunicorn_error.log --daemon --log-level=debug --reload  wsgi:app
 
