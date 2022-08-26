@@ -62,6 +62,10 @@ services:
       - "443:443"
     volumes:
       - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/html/ll:/usr/share/nginx/html/ll
+      - ./database/:/usr/share/nginx/html/database
+      - ./nginx:/var/log/nginx
+
     depends_on:
       - flask
     networks:
