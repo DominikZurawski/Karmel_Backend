@@ -2,7 +2,7 @@ FROM nginx:alpine
 
 
 COPY ./default.conf /etc/nginx/default.conf
-RUN chown nginx:nginx /usr/share/nginx/html/*
+RUN chown basic-user:basic-user /usr/share/nginx/html/*
 
 EXPOSE 80 443
 
