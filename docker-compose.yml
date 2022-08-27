@@ -49,6 +49,7 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     restart: unless-stopped
+
     environment:
       APP_ENV: "prod"
       APP_NAME: "nginx"
@@ -56,14 +57,13 @@ services:
       SERVICE_NAME: "nginx"
     ports:
       - "80:80"
-      - "81:81"
       - "443:443"
-    volumes:
-      
+    volumes:      
       - ./nginx/html:/usr/share/nginx/html
-      #- ./nginx/html/ll:/usr/share/nginx/html/ll
-      - database:/etc/data
       - ./nginx:/var/log/nginx
+      #- ./database:/etc/data
+    #command: ln -sf ./../database ./html
+      
       #https://www.md-techblog.net.pl/2018/10/docker-compose-nginx-proxy/
       #- /nginx/letsencrypt/:/etc/certs
 
@@ -85,4 +85,3 @@ volumes:
     driver: local
   nginx:
     driver: local
-  database:
