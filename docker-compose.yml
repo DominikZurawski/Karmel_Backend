@@ -6,7 +6,6 @@ services:
     build: 
       context: ./flask
       dockerfile: Dockerfile
-    #command: ./gunicorn.sh
     ports:
       - "5000:5000"    
     restart: unless-stopped
@@ -23,7 +22,6 @@ services:
     networks:
       - frontend
       - backend
-    #image: domino675/karmel_flask:latest
 
   mongodb:
     container_name: mongodb
@@ -44,7 +42,6 @@ services:
       - "27017:27017"
     networks:
       - backend
-    #image: domino675/karmel_mongodb:latest
 
   webserver:
     container_name: nginx
@@ -74,8 +71,6 @@ services:
       - flask
     networks:
       - frontend
-    #image: domino675/karmel_web:latest
-
 
 networks:
   frontend:
@@ -91,5 +86,3 @@ volumes:
   nginx:
     driver: local
   database:
-    external: true
-
