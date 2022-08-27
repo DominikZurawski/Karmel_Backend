@@ -61,14 +61,13 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      #- ./database/:/database/audio
+      
       - ./nginx/html:/usr/share/nginx/html
       #- ./nginx/html/ll:/usr/share/nginx/html/ll
-      
+      - database:/etc/data
       - ./nginx:/var/log/nginx
       #https://www.md-techblog.net.pl/2018/10/docker-compose-nginx-proxy/
       #- /nginx/letsencrypt/:/etc/certs
-
 
     depends_on:
       - flask
@@ -84,9 +83,12 @@ networks:
     driver: bridge
 
 volumes:
-  mongodbdata:
+  mongodb:
     driver: local
-  app:
+  flask:
     driver: local
-  nginxdata:
+  nginx:
     driver: local
+  database:
+    external: true
+
