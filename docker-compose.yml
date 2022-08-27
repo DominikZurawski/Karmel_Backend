@@ -66,7 +66,7 @@ services:
       - ./database/:/database
       - ./nginx:/var/log/nginx
       #https://www.md-techblog.net.pl/2018/10/docker-compose-nginx-proxy/
-      - /nginx/letsencrypt/:/etc/certs
+      #- /nginx/letsencrypt/:/etc/certs
 
 
     depends_on:
