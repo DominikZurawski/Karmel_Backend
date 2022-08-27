@@ -61,9 +61,10 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/html:/usr/share/nginx/html
-      - ./nginx/html/ll:/usr/share/nginx/html/ll
       - ./database/:/database/audio
+      - ./nginx/html:/usr/share/nginx/html
+      #- ./nginx/html/ll:/usr/share/nginx/html/ll
+      
       - ./nginx:/var/log/nginx
       #https://www.md-techblog.net.pl/2018/10/docker-compose-nginx-proxy/
       #- /nginx/letsencrypt/:/etc/certs
