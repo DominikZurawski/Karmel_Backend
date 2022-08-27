@@ -72,8 +72,7 @@ services:
     networks:
       - frontend
 
-  database:
-    container_name: database
+  
     
 
 networks:
