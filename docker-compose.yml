@@ -58,7 +58,7 @@ services:
       APP_DEBUG: "true"
       SERVICE_NAME: "nginx"
     ports:
-      - "80:80"
+      - "80:81"
       - "443:443"
     volumes:
       
