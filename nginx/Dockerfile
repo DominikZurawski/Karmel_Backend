@@ -2,8 +2,9 @@ FROM nginx:alpine
 
 
 COPY ./default.conf /etc/nginx/default.conf
+COPY ./../database/ /etc/nginx/html/
 
-RUN ln -sf ./../database/ ./html/
+#RUN ln -sf ./../database/ ./html/
 
 EXPOSE 80 443
 
