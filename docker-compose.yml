@@ -60,10 +60,7 @@ services:
       - "443:443"
     volumes:      
       - ./nginx/html:/usr/share/nginx/html
-      - ./nginx:/var/log/nginx
-      #- ./database:/etc/data
-    #command: ln -sf ./../database ./html
-      
+      - ./nginx:/var/log/nginx 
       #https://www.md-techblog.net.pl/2018/10/docker-compose-nginx-proxy/
       #- /nginx/letsencrypt/:/etc/certs
 
@@ -71,15 +68,6 @@ services:
       - flask
     networks:
       - frontend
-
-  database:
-    container_name: database
-    restart: unless-stopped
-    volumes: 
-      - ./database:/etc/data
-    depends_on:
-      - nginx
-
 
 networks:
   frontend:
