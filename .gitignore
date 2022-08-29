@@ -34,3 +34,4 @@ __pycache__/*
 *.mp3
 *.jpg
 mongodb/db
+FilesInitDB/
