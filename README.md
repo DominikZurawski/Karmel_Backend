@@ -41,7 +41,7 @@ password: ***
 docker push user/DockerRepository:version
 docker logout
 ```
-# Static files
+## Static files
 ```
 cd nginx/html/database
 ```
