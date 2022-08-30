@@ -27,7 +27,7 @@ def get_flask_app(config: dict = None) -> app.Flask:
     # init flask
     flask_app = Flask(__name__)    
     flask_app.config['JSON_SORT_KEYS'] = False
-    #flask_app.config['JSON_AS_ASCII'] = True
+    flask_app.config['JSON_AS_ASCII'] = False
     #flask_app.config['JSON_ADD_STATUS'] = True
     #flask_app.config['DEBUG_TB_PANELS'] = ['flask_mongoengine.panels.MongoDebugPanel']
     flask_app.config['JSONIFY_MIMETYPE'] = 'application/json'
