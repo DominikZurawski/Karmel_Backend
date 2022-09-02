@@ -67,7 +67,7 @@ class PatronDrawApi(Resource):
         #app.logger.info(agregate)
         dicts[0]['quotes'] = aggregate
 
-        return dicts[0].items()  
+        return dicts[0]['quotes'].items()  
 
 class PatronDownloadImage(Resource):
 
