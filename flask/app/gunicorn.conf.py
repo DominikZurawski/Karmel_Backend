@@ -13,7 +13,7 @@ def max_workers():
 #gunicorn config.wsgi:application \
 '''
 gunicorn app.wsgi:application \
-         --bind ${GUNICORN_HOST:-0.0.0.0}:${GUNICORN_PORT:-5030} \
+         --bind ${GUNICORN_HOST:-0.0.0.0}:${GUNICORN_PORT:-5000} \
          --timeout ${GUNICORN_TIMEOUT:-300} \
          --workers ${GUNICORN_WORKERS:(2-4) * max_workers()} \
          --threads ${GUNICORN_THREADS:-3 * max_workers()} \
@@ -25,4 +25,4 @@ gunicorn app.wsgi:application \
 
 '''
 #run aplication con gunicorn:
-#gunicorn --workers=2 --bind 0.0.0.0:5030  --name KarmelBackend --threads=6 --access-logfile ./gunicorn_access.log --error-logfile ./gunicorn_error.log --daemon --log-level=debug --reload  wsgi:app
+#gunicorn --workers=2 --bind 0.0.0.0:5000  --name KarmelBackend --threads=6 --access-logfile ./gunicorn_access.log --error-logfile ./gunicorn_error.log --daemon --log-level=debug --reload  wsgi:app
