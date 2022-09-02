@@ -63,7 +63,7 @@ class PatronDrawApi(Resource):
         dicts = json.loads(json_data)
 
         #app.logger.info(dicts[0]['patron'])
-        aggregate =  sample(dicts['quotes'], k=daysInMonth)
+        aggregate =  sample(dicts[0]['quotes'], k=daysInMonth)
         #app.logger.info(agregate)
         dicts[0]['quotes'] = aggregate
 
