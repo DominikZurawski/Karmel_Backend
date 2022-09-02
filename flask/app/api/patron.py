@@ -57,7 +57,7 @@ class PatronDrawApi(Resource):
         output = Patrons.objects.aggregate([
             {'$sample': { 'size': 1 } },
             #{ '$project': { 'patron': True, 'quotes': { '$slice': [ "$quotes", daysInMonth ] } } }
-                                            ])
+                                        ])
 
         json_data = dumps(output, indent = 2)     
         dicts = json.loads(json_data)
@@ -65,7 +65,7 @@ class PatronDrawApi(Resource):
         #app.logger.info(dicts[0]['patron'])
         aggregate =  sample(list(dicts[0]['quotes']), k=daysInMonth)
         #app.logger.info(agregate)
-        dicts[0]['quotes'] = aggregate
+        list(dicts[0]['quotes']) = aggregate
 
         return dicts  
 
