@@ -7,7 +7,7 @@ class Patrons(Document):
     patron = StringField(unique=True, max_length=240)
     description = StringField()
     url = StringField()  
-    quotes = DictField()  
+    quotes = ListField(DictField())  
     #quotes = ListField(DictField())
     #siglum = ListField() 
 
