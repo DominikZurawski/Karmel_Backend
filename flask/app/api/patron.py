@@ -65,9 +65,9 @@ class PatronDrawApi(Resource):
         #app.logger.info(dicts[0]['patron'])
         aggregate =  sample(list(dicts), k=daysInMonth)
         #app.logger.info(agregate)
-        dicts = aggregate
+        list(dicts) = aggregate
 
-        return dicts  
+        return list(dicts)
 
 class PatronDownloadImage(Resource):
 
